@@ -1,8 +1,8 @@
-﻿
-@model Categery
+﻿@model CoverType
 @{
     ViewData["Title"] = "Edit";
 }
+
 
 <div>
     <form class="" method="post">
@@ -15,15 +15,8 @@
             <span asp-validation-for="Name" style="color:red"></span>
         </div>
 
-        <div class="row mt-3">
-            <label asp-for="DisplayOrder" ></label>
-            <input asp-for="DisplayOrder" class="form-control"/>
-            <span asp-validation-for="DisplayOrder" style="color:red"></span>
-        </div>
-
         <button type="submit" class="btn btn-success mt-3">Update</button>
-        <a asp-controller="Categery" asp-action="Index" class="btn btn-info mt-3 mx-3">Back</a>
+        <a asp-controller="CoverType" asp-action="Index" class="btn btn-info mt-3 mx-3">Back</a>
         
     </form>
 </div>
-

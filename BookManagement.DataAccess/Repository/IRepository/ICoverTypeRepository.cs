@@ -1,4 +1,5 @@
-﻿using BookManagement.Model;
+﻿
+using BookManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace BookManagement.DataAccess.Repository.IRepository
 {
-    public interface ICategeryRepository : IRepository<Categery>
+    public interface ICoverTypeRepository : IRepository<CoverType>
     {
-        void Update(Categery obj);
+        void Update(CoverType obj);
     }
 }

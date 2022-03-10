@@ -1,20 +1,20 @@
 ﻿using BookManagement.DataAccess.Repository.IRepository;
-using BookManagement.Models;
+using BookManagement.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookManagementWebApp.Controllers
 {
     public class CategeryController : Controller
     {
-        private readonly ICategeryRepository _db;
+        private readonly IUnitOfWork _UnitOfWork;
 
-        public CategeryController(ICategeryRepository db)
+        public CategeryController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _UnitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            IEnumerable<Categery> obj=_db.GetAll();
+            IEnumerable<Categery> obj= _UnitOfWork.ICategery_Obj.GetAll();
             return View(obj);
         }
 
@@ -36,8 +36,8 @@ namespace BookManagementWebApp.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Add(obj);
-                _db.Save();
+                _UnitOfWork.ICategery_Obj.Add(obj);
+                _UnitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -50,7 +50,7 @@ namespace BookManagementWebApp.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.GetFirstOrDefault(x=>x.Id==id);
+            var obj = _UnitOfWork.ICategery_Obj.GetFirstOrDefault(x=>x.Id==id);
 
             if (obj == null)
             {
@@ -72,8 +72,8 @@ namespace BookManagementWebApp.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Update(obj);
-                _db.Save();
+                _UnitOfWork.ICategery_Obj.Update(obj);
+                _UnitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -85,14 +85,14 @@ namespace BookManagementWebApp.Controllers
             {
                 return NotFound();
             }
-            var obj = _db.GetFirstOrDefault(x => x.Id == id);
+            var obj = _UnitOfWork.ICategery_Obj.GetFirstOrDefault(x => x.Id == id);
 
             if (obj == null)
             {
                 return NotFound();
             }
-            _db.Remove(obj);
-            _db.Save();
+            _UnitOfWork.ICategery_Obj.Remove(obj);
+            _UnitOfWork.Save();
             return RedirectToAction("Index");
         }
     }

@@ -1,5 +1,5 @@
 ﻿using BookManagement.DataAccess.Repository.IRepository;
-using BookManagement.Models;
+using BookManagement.Model;
 using BookManagement.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,10 +22,7 @@ namespace BookManagement.DataAccess.Repository
         {
             _db.Categeries.Update(obj); 
         }
-        public void Save()
-        {
-            _db.SaveChanges();
-        }
+        
 
         
     }

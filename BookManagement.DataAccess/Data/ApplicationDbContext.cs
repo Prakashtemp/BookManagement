@@ -1,5 +1,5 @@
 ﻿
-using BookManagement.Models;
+using BookManagement.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookManagement.DataAccess.Data
@@ -12,5 +12,6 @@ namespace BookManagement.DataAccess.Data
         }
 
         public DbSet<Categery> Categeries { get; set; }
+        public DbSet<CoverType> CoverTypes { get; set; }
     }
 }

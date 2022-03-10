@@ -11,7 +11,7 @@ namespace BookManagement.DataAccess.Repository.IRepository
     {
         IEnumerable<T> GetAll();
         void Add(T item);
-        T GetFirstOrDefault(Expression<Func<T, bool>> filter);
+        T GetFirstOrDefault(Expression<Func<T, bool>> filter); 
         void Remove(T item);
     }
 }
